@@ -11,7 +11,11 @@ import SwiftUI
 struct RepoArchApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let userAPI = UserAPIService()
+            let userRepo = UserRepo(userApiService: userAPI)
+            let viewModel = UserViewmodel(repo: userRepo)
+            
+            UserView(viewModel: viewModel)
         }
     }
 }
